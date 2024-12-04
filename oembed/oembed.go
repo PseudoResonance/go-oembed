@@ -219,6 +219,7 @@ func (o *Oembed) prepareEndpointURL(url string) string {
 func (o *Oembed) convertSchemaURL2Regexp(url string) *regexp.Regexp {
 	// domain replacements
 	url = strings.Replace(url, "?", "\\?", -1)
+	url = strings.Replace(url, ".", "\\.", -1)
 	url = su2re1.ReplaceAllString(url, "${1}[^/]%?${2}")
 	url = su2re2.ReplaceAllString(url, "${1}.%?${2}")
 	url = su2re3.ReplaceAllString(url, "${1}.%")
